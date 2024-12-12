@@ -17,7 +17,8 @@ defmodule ExpoEscom.Application do
       # Start a worker by calling: ExpoEscom.Worker.start_link(arg)
       # {ExpoEscom.Worker, arg},
       # Start to serve requests, typically the last entry
-      ExpoEscomWeb.Endpoint
+      ExpoEscomWeb.Endpoint,
+      TwMerge.Cache
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
