@@ -4,13 +4,12 @@ defmodule ExpoEscom.Eventos.Carrera do
   attributes do
     integer_primary_key :id
 
-    attribute :nombre, :atom do
-      constraints one_of: [:ISC, :IA, :CD]
+    attribute :nombre, :string do
+      allow_nil? false
     end
   end
 
   relationships do
-    has_many :alumnos. ExpoEscom.Eventos.Alumno
+    has_many :alumnos, ExpoEscom.Eventos.Alumno
   end
-
 end

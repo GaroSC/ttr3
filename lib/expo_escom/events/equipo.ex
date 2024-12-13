@@ -12,14 +12,10 @@ defmodule ExpoEscom.Eventos.Equipo do
       allow_nil? false
     end
 
-    attribute :puntaje, :float do
-      allow_nil? false
-    end
-
+    attribute :puntaje, :integer
   end
 
   relationships do
-    has_many :alumnos. ExpoEscom.Eventos.Alumno
+    has_many :alumnos, ExpoEscom.Eventos.Alumno
   end
-
 end

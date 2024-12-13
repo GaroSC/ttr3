@@ -4,7 +4,7 @@ defmodule ExpoEscom.Eventos.Alumno do
   attributes do
     integer_primary_key :id
 
-    attribute :nombre, :string do
+    attribute :numero_boleta, :string do
       allow_nil? false
     end
   end
@@ -13,5 +13,4 @@ defmodule ExpoEscom.Eventos.Alumno do
     belongs_to :carrera, ExpoEscom.Eventos.Carrera
     belongs_to :equipo, ExpoEscom.Eventos.Equipo
   end
-
 end
