@@ -1,4 +1,4 @@
-defmodule ExpoEscom.Eventos.Academia do
+defmodule ExpoEscom.Eventos.Alumno do
   use Ash.Resource, domain: ExpoEscom.Eventos
 
   attributes do
@@ -10,6 +10,8 @@ defmodule ExpoEscom.Eventos.Academia do
   end
 
   relationships do
-    has_many :docentes, ExpoEscom.Eventos.Docente
+    belongs_to :carrera, ExpoEscom.Eventos.Carrera
+    belongs_to :equipo, ExpoEscom.Eventos.Equipo
   end
+
 end

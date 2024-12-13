@@ -8,4 +8,8 @@ defmodule ExpoEscom.Eventos.Departamento do
       allow_nil? false
     end
   end
+
+  relaionships do
+    has_many :docentes, ExpoEscom.Eventos.Docente
+  end
 end

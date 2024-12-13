@@ -10,4 +10,9 @@ defmodule ExpoEscom.Eventos.Docente do
       constraints one_of: [:matutino, :vespertino]
     end
   end
+
+  relationships do
+    belongs_to :departamentos, ExpoEscom.Eventos.Departamento
+    belongs_to :academias, ExpoEscom.Eventos.Academia
+  end
 end
