@@ -17,7 +17,7 @@ defmodule ExpoEscom.Eventos.Alumno do
   end
 
   relationships do
-    belongs_to :carrera, ExpoEscom.Eventos.Carrera
-    belongs_to :equipo, ExpoEscom.Eventos.Equipo
+    belongs_to :carrera, ExpoEscom.Eventos.Carrera, attribute_type: :integer
+    belongs_to :equipo, ExpoEscom.Eventos.Equipo, attribute_type: :integer
   end
 end

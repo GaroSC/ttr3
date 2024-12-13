@@ -18,7 +18,7 @@ defmodule ExpoEscom.Eventos.Docente do
   end
 
   relationships do
-    belongs_to :departamento, ExpoEscom.Eventos.Departamento
-    belongs_to :academia, ExpoEscom.Eventos.Academia
+    belongs_to :departamento, ExpoEscom.Eventos.Departamento, attribute_type: :integer
+    belongs_to :academia, ExpoEscom.Eventos.Academia, attribute_type: :integer
   end
 end

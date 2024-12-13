@@ -22,6 +22,6 @@ defmodule ExpoEscom.Eventos.Actividad do
   end
 
   relationships do
-    belongs_to :evento, ExpoEscom.Eventos.Evento
+    belongs_to :evento, ExpoEscom.Eventos.Evento, attribute_type: :integer
   end
 end
