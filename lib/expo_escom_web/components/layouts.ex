@@ -10,5 +10,13 @@ defmodule ExpoEscomWeb.Layouts do
   """
   use ExpoEscomWeb, :html
 
+  import ExpoEscomWeb.Component.Breadcrumb
+  import ExpoEscomWeb.Component.Button
+  import ExpoEscomWeb.Component.DropdownMenu
+  import ExpoEscomWeb.Component.Input
+  import ExpoEscomWeb.Component.Menu
+  import ExpoEscomWeb.Component.Sheet
+  import ExpoEscomWeb.Component.Tooltip
+
   embed_templates "layouts/*"
 end

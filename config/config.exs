@@ -7,6 +7,8 @@
 # General application configuration
 import Config
 
+config :expo_escom, :ash_domains, [ExpoEscom.Eventos]
+
 config :ash,
   include_embedded_source_by_default?: false,
   default_page_type: :keyset,
