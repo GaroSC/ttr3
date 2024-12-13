@@ -1,5 +1,10 @@
 defmodule ExpoEscom.Eventos.Departamento do
-  use Ash.Resource, domain: ExpoEscom.Eventos
+  use Ash.Resource, domain: ExpoEscom.Eventos, data_layer: AshPostgres.DataLayer
+
+  postgres do
+    table "departamentos"
+    repo ExpoEscom.Repo
+  end
 
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
