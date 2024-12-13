@@ -2,44 +2,17 @@ defmodule ExpoEscom.Eventos.Evento do
   use Ash.Resource, domain: ExpoEscom.Eventos
 
   actions do
-    defaults [:read, :destroy]
-
-    create :create do
-      accept [:nombre, :descripcion, :ano, :color_fondo, :url_cartel]
-    end
-
-    update :update do
-      accept [:nombre, :descripcion, :ano, :color_fondo, :url_cartel]
-    end
+    defaults [:read, :destroy, create: :*, update: :*]
   end
 
   attributes do
     integer_primary_key :id
 
-    attribute :nombre, :string do
-      allow_nil? false
-      public? true
-    end
-
-    attribute :descripcion, :string do
-      allow_nil? false
-      public? true
-    end
-
-    attribute :ano, :integer do
-      allow_nil? false
-      public? true
-    end
-
-    attribute :color_fondo, :string do
-      allow_nil? false
-      public? true
-    end
-
-    attribute :url_cartel, :string do
-      allow_nil? false
-      public? true
-    end
+    attribute :nombre, :string, allow_nil?: false, public?: true
+    attribute :descripcion, :string, allow_nil?: false, public?: true
+    attribute :ano, :integer, allow_nil?: false, public?: true
+    attribute :color_fondo, :string, allow_nil?: false, public?: true
+    attribute :url_cartel, :string, allow_nil?: false, public?: true
   end
 
   relationships do

@@ -1,15 +1,17 @@
 defmodule ExpoEscom.Eventos.Departamento do
   use Ash.Resource, domain: ExpoEscom.Eventos
 
+  actions do
+    defaults [:read, :destroy, create: :*, update: :*]
+  end
+
   attributes do
     integer_primary_key :id
 
-    attribute :nombre, :string do
-      allow_nil? false
-    end
+    attribute :nombre, :string, allow_nil?: false
   end
 
-  relaionships do
+  relationships do
     has_many :docentes, ExpoEscom.Eventos.Docente
   end
 end

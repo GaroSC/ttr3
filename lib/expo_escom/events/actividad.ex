@@ -1,21 +1,17 @@
 defmodule ExpoEscom.Eventos.Actividad do
   use Ash.Resource, domain: ExpoEscom.Eventos
 
+  actions do
+    defaults [:read, :destroy, create: :*, update: :*]
+  end
+
   attributes do
     integer_primary_key :id
 
-    attribute :nombre, :string do
-      allow_nil? false
-      public? true
-    end
-
+    attribute :nombre, :string, allow_nil?: false, public?: true
     attribute :comienza_en, :datetime
     attribute :url_cartel, :string
-
-    attribute :tipo, :atom do
-      constraints one_of: [:concurso, :presentacion]
-    end
-
+    attribute :tipo, :atom, constraints: [one_of: [:concurso, :presentacion]]
     attribute :premio, :string
     attribute :url_evaluacion, :string
   end
