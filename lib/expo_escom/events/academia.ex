@@ -8,8 +8,4 @@ defmodule ExpoEscom.Eventos.Academia do
       allow_nil? false
     end
   end
-
-  relationships do
-  end
-
 end

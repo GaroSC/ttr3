@@ -8,7 +8,4 @@ defmodule ExpoEscom.Eventos.Departamento do
       allow_nil? false
     end
   end
-
-  relationships do
-  end
 end

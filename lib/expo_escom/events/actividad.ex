@@ -13,7 +13,7 @@ defmodule ExpoEscom.Eventos.Actividad do
     attribute :url_cartel, :string
 
     attribute :tipo, :atom do
-      constraint(one_of: [:concurso, :presentacion])
+      constraints one_of: [:concurso, :presentacion]
     end
 
     attribute :premio, :string
