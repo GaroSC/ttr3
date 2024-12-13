@@ -1,7 +1,9 @@
 defmodule ExpoEscom.Eventos.Docente do
   use Ash.Resource, domain: ExpoEscom.Eventos
 
-  defaults [:read, :destroy, create: :*, update: :*]
+  actions do
+    defaults [:read, :destroy, create: :*, update: :*]
+  end
 
   attributes do
     integer_primary_key :id
@@ -11,7 +13,7 @@ defmodule ExpoEscom.Eventos.Docente do
   end
 
   relationships do
-    belongs_to :departamentos, ExpoEscom.Eventos.Departamento
-    belongs_to :academias, ExpoEscom.Eventos.Academia
+    belongs_to :departamento, ExpoEscom.Eventos.Departamento
+    belongs_to :academia, ExpoEscom.Eventos.Academia
   end
 end
