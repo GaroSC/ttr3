@@ -88,7 +88,7 @@ defmodule ExpoEscomWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
-      import ExpoEscomWeb.CoreComponents
+      import ExpoEscomWeb.CoreComponents, only: [flash_group: 1]
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

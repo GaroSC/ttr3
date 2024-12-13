@@ -18,6 +18,7 @@ defmodule ExpoEscomWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/dashboard", Live.DashboardOne
   end
 
   # Other scopes may use custom stacks.

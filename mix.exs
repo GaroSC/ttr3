@@ -63,7 +63,9 @@ defmodule ExpoEscom.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
-      {:salad_ui, "~> 0.14"}
+      {:salad_ui, "~> 0.14"},
+      {:faker, "~> 0.18"},
+      {:lucide_icons, github: "neftalyluis/lucide_icons"}
     ]
   end
 
