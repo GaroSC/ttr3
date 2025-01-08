@@ -19,6 +19,7 @@ defmodule ExpoEscomWeb.Router do
 
     get "/", PageController, :home
     live "/dashboard", Live.DashboardOne
+    live "/eventos", Live.Eventos
   end
 
   # Other scopes may use custom stacks.
