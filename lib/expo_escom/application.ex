@@ -18,7 +18,8 @@ defmodule ExpoEscom.Application do
       # {ExpoEscom.Worker, arg},
       # Start to serve requests, typically the last entry
       ExpoEscomWeb.Endpoint,
-      TwMerge.Cache
+      TwMerge.Cache,
+      {AshAuthentication.Supervisor, [otp_app: :expo_escom]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

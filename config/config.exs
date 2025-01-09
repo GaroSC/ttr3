@@ -7,7 +7,7 @@
 # General application configuration
 import Config
 
-config :expo_escom, :ash_domains, [ExpoEscom.Eventos]
+config :expo_escom, :ash_domains, [ExpoEscom.Accounts, ExpoEscom.Eventos]
 
 config :ash,
   include_embedded_source_by_default?: false,
@@ -19,6 +19,8 @@ config :spark,
     remove_parens?: true,
     "Ash.Resource": [
       section_order: [
+        :authentication,
+        :tokens,
         :postgres,
         :resource,
         :code_interface,

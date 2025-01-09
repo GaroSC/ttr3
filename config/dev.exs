@@ -63,7 +63,7 @@ config :expo_escom, ExpoEscomWeb.Endpoint,
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :expo_escom, dev_routes: true
+config :expo_escom, dev_routes: true, token_signing_secret: "64mcel2SSaLpCfSh1UA0CSERe9vA1S70"
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

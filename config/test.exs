@@ -1,4 +1,5 @@
 import Config
+config :expo_escom, token_signing_secret: "vYicZar2DYJ8J1MVQRUtRcDGgMD4vCjt"
 config :ash, disable_async?: true
 
 # Configure your database

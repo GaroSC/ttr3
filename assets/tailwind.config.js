@@ -9,7 +9,8 @@ module.exports = {
   content: [
     "./js/**/*.js",
     "../lib/expo_escom_web.ex",
-    "../lib/expo_escom_web/**/*.*ex"
+    "../lib/expo_escom_web/**/*.*ex",
+    "../deps/ash_authentication_phoenix/**/*.*ex"
   ],
   theme: {
     extend: {

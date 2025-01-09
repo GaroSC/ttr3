@@ -1,5 +1,8 @@
 defmodule ExpoEscom.Eventos.Actividad do
-  use Ash.Resource, domain: ExpoEscom.Eventos, data_layer: AshPostgres.DataLayer
+  use Ash.Resource,
+    domain: ExpoEscom.Eventos,
+    data_layer: AshPostgres.DataLayer,
+    authorizers: [Ash.Policy.Authorizer]
 
   postgres do
     table "actividades"
@@ -8,6 +11,30 @@ defmodule ExpoEscom.Eventos.Actividad do
 
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
+  end
+
+  policies do
+    policy action_type(:read) do
+      authorize_if always()
+    end
+
+    policy action_type(:create) do
+      authorize_if ExpoEscom.Checks.IsAdminUser
+      authorize_if ExpoEscom.Checks.IsJefeDepartamentoUser
+      authorize_if relates_to_actor_via([:academia, :docente, :user])
+    end
+
+    policy action_type(:update) do
+      authorize_if ExpoEscom.Checks.IsAdminUser
+      authorize_if ExpoEscom.Checks.IsJefeDepartamentoUser
+      authorize_if relates_to_actor_via([:academia, :docente, :user])
+    end
+
+    policy action_type(:destroy) do
+      authorize_if ExpoEscom.Checks.IsAdminUser
+      authorize_if ExpoEscom.Checks.IsJefeDepartamentoUser
+      authorize_if relates_to_actor_via([:academia, :docente, :user])
+    end
   end
 
   attributes do
@@ -23,5 +50,8 @@ defmodule ExpoEscom.Eventos.Actividad do
 
   relationships do
     belongs_to :evento, ExpoEscom.Eventos.Evento, attribute_type: :integer
+    belongs_to :academia, ExpoEscom.Eventos.Academia, attribute_type: :integer
+    belongs_to :docente, ExpoEscom.Eventos.Docente, attribute_type: :integer
+    has_one :equipo, ExpoEscom.Eventos.Equipo
   end
 end

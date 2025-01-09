@@ -33,6 +33,9 @@ defmodule ExpoEscom.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 3.0"},
+      {:ash_authentication, "~> 4.1"},
+      {:ash_authentication_phoenix, "~> 2.0"},
       {:ash_postgres, "~> 2.0"},
       {:ash_phoenix, "~> 2.0"},
       {:ash, "~> 3.0"},
@@ -55,7 +58,7 @@ defmodule ExpoEscom.MixProject do
        app: false,
        compile: false,
        depth: 1},
-      {:swoosh, "~> 1.5"},
+      {:swoosh, "~> 1.17.6"},
       {:finch, "~> 0.13"},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
@@ -65,7 +68,8 @@ defmodule ExpoEscom.MixProject do
       {:bandit, "~> 1.5"},
       {:salad_ui, "~> 0.14"},
       {:faker, "~> 0.18"},
-      {:lucide_icons, github: "neftalyluis/lucide_icons"}
+      {:lucide_icons, github: "neftalyluis/lucide_icons"},
+      {:picosat_elixir, "~> 0.2.3"}
     ]
   end
 
