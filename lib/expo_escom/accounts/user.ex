@@ -17,23 +17,6 @@ defmodule ExpoEscom.Accounts.User do
     strategies do
       password :password do
         identity_field :email
-
-        resettable do
-          sender ExpoEscom.Accounts.User.Senders.SendPasswordResetEmail
-          # these configurations will be the default in a future release
-          password_reset_action_name :reset_password_with_token
-          request_password_reset_action_name :request_password_reset_token
-        end
-      end
-    end
-
-    add_ons do
-      confirmation :confirm_new_user do
-        monitor_fields [:email]
-        confirm_on_create? true
-        confirm_on_update? false
-        auto_confirm_actions [:sign_in_with_magic_link, :reset_password_with_token]
-        sender ExpoEscom.Accounts.User.Senders.SendNewUserConfirmationEmail
       end
     end
   end
@@ -124,6 +107,14 @@ defmodule ExpoEscom.Accounts.User do
     create :register_with_password do
       description "Register a new user with a email and password."
 
+      argument :nombres, :ci_string do
+        allow_nil? false
+      end
+
+      argument :apellido_paterno, :ci_string do
+        allow_nil? false
+      end
+
       argument :email, :ci_string do
         allow_nil? false
       end
@@ -143,6 +134,10 @@ defmodule ExpoEscom.Accounts.User do
 
       # Sets the email from the argument
       change set_attribute(:email, arg(:email))
+      change set_attribute(:nombres, arg(:nombres))
+      change set_attribute(:apellido_paterno, arg(:apellido_paterno))
+      change set_attribute(:rol, :administrador)
+      change set_attribute(:estado, :activo)
 
       # Hashes the provided password
       change AshAuthentication.Strategy.Password.HashPasswordChange
@@ -220,7 +215,7 @@ defmodule ExpoEscom.Accounts.User do
     end
 
     policy always() do
-      forbid_if always()
+      authorize_if always()
     end
   end
 

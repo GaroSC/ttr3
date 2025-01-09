@@ -12,7 +12,7 @@ config :expo_escom, :ash_domains, [ExpoEscom.Accounts, ExpoEscom.Eventos]
 config :ash,
   include_embedded_source_by_default?: false,
   default_page_type: :keyset,
-  policies: [no_filter_static_forbidden_reads?: false]
+  policies: [no_filter_static_forbidden_reads?: false, show_policy_breakdowns?: true]
 
 config :spark,
   formatter: [
