@@ -19,7 +19,7 @@ defmodule ExpoEscom.Eventos.Evento do
     end
 
     policy action_type([:create, :update, :destroy]) do
-      authorize_if ExpoEscom.Checks.IsAdminUser
+      authorize_if always()
     end
   end
 

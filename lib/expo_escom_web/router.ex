@@ -38,9 +38,18 @@ defmodule ExpoEscomWeb.Router do
   scope "/", ExpoEscomWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
-    live "/dashboard", Live.DashboardOne
-    live "/eventos", Live.Eventos
+    ash_authentication_live_session :authentication_required,
+      on_mount: {ExpoEscomWeb.LiveUserAuth, :live_user_required} do
+      live "/eventos", EventoLive.Index, :index
+      live "/eventos/new", EventoLive.Index, :new
+      live "/eventos/:id/edit", EventoLive.Index, :edit
+    end
+
+    ash_authentication_live_session :authentication_optional,
+      on_mount: {ExpoEscomWeb.LiveUserAuth, :live_user_optional} do
+      get "/", PageController, :home
+    end
+
     auth_routes AuthController, ExpoEscom.Accounts.User, path: "/auth"
     sign_out_route AuthController
 
@@ -53,13 +62,6 @@ defmodule ExpoEscomWeb.Router do
                     ExpoEscomWeb.AuthOverrides,
                     AshAuthentication.Phoenix.Overrides.Default
                   ]
-
-    # Remove this if you do not want to use the reset password feature
-    reset_route auth_routes_prefix: "/auth",
-                overrides: [
-                  ExpoEscomWeb.AuthOverrides,
-                  AshAuthentication.Phoenix.Overrides.Default
-                ]
   end
 
   # Other scopes may use custom stacks.
